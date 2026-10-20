@@ -98,7 +98,7 @@ function submitDigit(digit) {
       return;
     }
 
-    feedback.textContent = "Cluenya: tanggal bulan .";
+    feedback.textContent = "Cluenya: tanggal bulan.";
     dots.classList.remove("is-shaking");
     void dots.offsetWidth;
     dots.classList.add("is-shaking");
