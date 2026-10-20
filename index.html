@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#11121c" />
+    <meta
+      name="description"
+      content="Sebuah kejutan kecil sebelum tidur. Buka dengan kode rahasia dan temukan taman bunga untukmu."
+    />
+    <title>Sebelum Tidur, ini untuk bebeh 🌷</title>
+    <link rel="stylesheet" href="styles.css?v=8" />
+    <script src="script.js?v=5" defer></script>
+  </head>
+  <body>
+    <audio id="bg-music" src="music/Nothing%27s%20Gonna%20Change%20My%20Love%20for%20You.mp3" loop preload="none"></audio>
+
+    <div class="unlock-bloom" id="unlock-bloom" aria-hidden="true">
+      <svg class="unlock-bloom-art" viewBox="0 0 500 500">
+        <defs>
+          <radialGradient id="unlock-petal-pink" cx="35%" cy="30%">
+            <stop offset="0" stop-color="#fff0c9" />
+            <stop offset="0.58" stop-color="#ffb9c9" />
+            <stop offset="1" stop-color="#d77ca7" />
+          </radialGradient>
+          <radialGradient id="unlock-petal-peach" cx="35%" cy="30%">
+            <stop offset="0" stop-color="#fff3cd" />
+            <stop offset="0.58" stop-color="#ffc18f" />
+            <stop offset="1" stop-color="#ec8795" />
+          </radialGradient>
+          <radialGradient id="unlock-petal-lilac" cx="35%" cy="30%">
+            <stop offset="0" stop-color="#fff0e9" />
+            <stop offset="0.58" stop-color="#d9b5f1" />
+            <stop offset="1" stop-color="#9b79cd" />
+          </radialGradient>
+          <radialGradient id="unlock-heart">
+            <stop offset="0" stop-color="#fff0bd" />
+            <stop offset="1" stop-color="#e9a76c" />
+          </radialGradient>
+          <g id="unlock-flower-shape">
+            <ellipse cx="0" cy="-12" rx="7" ry="17" />
+            <ellipse cx="0" cy="-12" rx="7" ry="17" transform="rotate(60)" />
+            <ellipse cx="0" cy="-12" rx="7" ry="17" transform="rotate(120)" />
+            <ellipse cx="0" cy="-12" rx="7" ry="17" transform="rotate(180)" />
+            <ellipse cx="0" cy="-12" rx="7" ry="17" transform="rotate(240)" />
+            <ellipse cx="0" cy="-12" rx="7" ry="17" transform="rotate(300)" />
+            <circle r="8" fill="#c76f83" />
+            <circle r="4" fill="url(#unlock-heart)" />
+          </g>
+        </defs>
+        <g class="unlock-bloom-flower-ring">
+          <g transform="translate(250 70)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-pink)" /></g>
+          <g transform="translate(319 84)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-peach)" /></g>
+          <g transform="translate(377 123)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-lilac)" /></g>
+          <g transform="translate(416 181)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-pink)" /></g>
+          <g transform="translate(430 250)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-peach)" /></g>
+          <g transform="translate(416 319)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-lilac)" /></g>
+          <g transform="translate(377 377)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-pink)" /></g>
+          <g transform="translate(319 416)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-peach)" /></g>
+          <g transform="translate(250 430)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-lilac)" /></g>
+          <g transform="translate(181 416)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-pink)" /></g>
+          <g transform="translate(123 377)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-peach)" /></g>
+          <g transform="translate(84 319)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-lilac)" /></g>
+          <g transform="translate(70 250)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-pink)" /></g>
+          <g transform="translate(84 181)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-peach)" /></g>
+          <g transform="translate(123 123)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-lilac)" /></g>
+          <g transform="translate(181 84)"><use href="#unlock-flower-shape" fill="url(#unlock-petal-pink)" /></g>
+        </g>
+      </svg>
+    </div>
+
+    <main class="lock-screen" id="lock-screen" aria-label="Layar kode rahasia">
+      <div class="lock-backdrop" aria-hidden="true">
+        <span class="lock-glow lock-glow--one"></span>
+        <span class="lock-glow lock-glow--two"></span>
+        <span class="lock-star lock-star--one">✳</span>
+        <span class="lock-star lock-star--two">✦</span>
+        <span class="lock-star lock-star--three">·</span>
+      </div>
+
+      <section class="lock-content">
+        <div class="lock-date" id="lock-date"></div>
+        <time class="lock-clock" id="lock-clock" aria-label="Waktu saat ini"></time>
+        <p class="lock-subtitle">stop badmoodnya ya cantiknya acuu</p>
+
+        <div class="passcode-area">
+          <p class="passcode-prompt" id="passcode-prompt">Masukkan tanggal kamu nerima aku jadi pasanganmu >.< </p>
+          <div
+            class="passcode-dots"
+            id="passcode-dots"
+            role="img"
+            aria-label="0 dari 4 digit dimasukkan"
+          >
+            <span class="passcode-dot"></span>
+            <span class="passcode-dot"></span>
+            <span class="passcode-dot"></span>
+            <span class="passcode-dot"></span>
+          </div>
+          <p class="passcode-feedback" id="passcode-feedback" aria-live="polite"></p>
+
+          <div class="keypad" role="group" aria-label="Keypad passcode">
+            <button class="key" type="button" data-digit="1" aria-label="1">1</button>
+            <button class="key" type="button" data-digit="2" aria-label="2">2</button>
+            <button class="key" type="button" data-digit="3" aria-label="3">3</button>
+            <button class="key" type="button" data-digit="4" aria-label="4">4</button>
+            <button class="key" type="button" data-digit="5" aria-label="5">5</button>
+            <button class="key" type="button" data-digit="6" aria-label="6">6</button>
+            <button class="key" type="button" data-digit="7" aria-label="7">7</button>
+            <button class="key" type="button" data-digit="8" aria-label="8">8</button>
+            <button class="key" type="button" data-digit="9" aria-label="9">9</button>
+            <span class="keypad-spacer" aria-hidden="true"></span>
+            <button class="key key--zero" type="button" data-digit="0" aria-label="0">0</button>
+            <button
+              class="key key--delete"
+              id="delete-digit"
+              type="button"
+              aria-label="Hapus digit terakhir"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 4.75h10.25A1.75 1.75 0 0 1 21 6.5v11a1.75 1.75 0 0 1-1.75 1.75H9l-6-7.25 6-7.25Z" />
+                <path d="m11 9 5 6m0-6-5 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <p class="lock-hint">ketik angka di layar atau keyboard</p>
+      </section>
+    </main>
+
+    <main class="garden" id="garden" aria-hidden="true" hidden>
+      <div class="garden-sky" aria-hidden="true">
+        <span class="sky-star sky-star--one"></span>
+        <span class="sky-star sky-star--two"></span>
+        <span class="sky-star sky-star--three"></span>
+        <span class="sky-star sky-star--four"></span>
+        <span class="sky-star sky-star--five"></span>
+        <span class="sky-star sky-star--six"></span>
+        <span class="sky-moon"></span>
+      </div>
+
+      <button
+        class="music-toggle"
+        id="music-toggle"
+        type="button"
+        aria-label="Matikan musik"
+        aria-pressed="true"
+      >
+        <svg class="music-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+        <span>musik</span>
+      </button>
+
+      <div class="garden-content">
+        <p class="eyebrow"><span></span> sebuah kejutan kecil</p>
+        <h1>Sebelum tidur,<br />aku punya sesuatu<br />buat <em>bebehhh.</em></h1>
+        <p class="garden-intro">
+          Bunga-bunga ini mungkin sederhana dan cuma virtual, tapi semuanya tumbuh dengan satu
+          alasan: mengingatkanmu betapa berharganya diri kamu.
+        </p>
+
+        <div class="flower-garden" aria-hidden="true">
+          <div class="ground-glow"></div>
+          <svg class="flower-art flower-art--left" viewBox="0 0 180 300">
+            <defs>
+              <linearGradient id="petals-left" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffd7e4" />
+                <stop offset="1" stop-color="#e98ab6" />
+              </linearGradient>
+            </defs>
+            <path class="stem" d="M91 284c-7-54 12-102 0-174" />
+            <path class="leaf" d="M87 222c-37 2-46-22-47-37 30-2 45 11 47 37Z" />
+            <path class="leaf" d="M91 250c34-4 42-25 40-41-27 1-41 15-40 41Z" />
+            <g class="blossom">
+              <g class="petals" fill="url(#petals-left)">
+                <ellipse cx="90" cy="46" rx="19" ry="40" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(45 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(90 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(135 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(180 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(225 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(270 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(315 90 86)" />
+              </g>
+              <circle class="flower-center" cx="90" cy="86" r="20" />
+              <circle class="flower-center-dot" cx="90" cy="86" r="8" />
+            </g>
+          </svg>
+
+          <svg class="flower-art flower-art--main" viewBox="0 0 220 340">
+            <defs>
+              <linearGradient id="petals-main" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffe2a9" />
+                <stop offset="1" stop-color="#f58b9d" />
+              </linearGradient>
+            </defs>
+            <path class="stem" d="M110 326c-8-75 10-142 0-224" />
+            <path class="leaf" d="M108 256c-46 1-57-29-58-49 38-2 56 14 58 49Z" />
+            <path class="leaf" d="M110 287c40-5 51-29 49-49-33 2-50 18-49 49Z" />
+            <g class="blossom">
+              <g class="petals" fill="url(#petals-main)">
+                <ellipse cx="110" cy="58" rx="24" ry="49" />
+                <ellipse cx="110" cy="58" rx="24" ry="49" transform="rotate(45 110 107)" />
+                <ellipse cx="110" cy="58" rx="24" ry="49" transform="rotate(90 110 107)" />
+                <ellipse cx="110" cy="58" rx="24" ry="49" transform="rotate(135 110 107)" />
+                <ellipse cx="110" cy="58" rx="24" ry="49" transform="rotate(180 110 107)" />
+                <ellipse cx="110" cy="58" rx="24" ry="49" transform="rotate(225 110 107)" />
+                <ellipse cx="110" cy="58" rx="24" ry="49" transform="rotate(270 110 107)" />
+                <ellipse cx="110" cy="58" rx="24" ry="49" transform="rotate(315 110 107)" />
+              </g>
+              <circle class="flower-center" cx="110" cy="107" r="25" />
+              <circle class="flower-center-dot" cx="110" cy="107" r="10" />
+            </g>
+          </svg>
+
+          <svg class="flower-art flower-art--right" viewBox="0 0 180 300">
+            <defs>
+              <linearGradient id="petals-right" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#e5d6ff" />
+                <stop offset="1" stop-color="#ac8ce8" />
+              </linearGradient>
+            </defs>
+            <path class="stem" d="M89 284c7-54-12-102 0-174" />
+            <path class="leaf" d="M91 227c34 1 44-21 45-36-28-2-42 11-45 36Z" />
+            <path class="leaf" d="M89 253c-34-3-42-25-40-41 27 1 41 16 40 41Z" />
+            <g class="blossom">
+              <g class="petals" fill="url(#petals-right)">
+                <ellipse cx="90" cy="46" rx="19" ry="40" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(45 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(90 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(135 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(180 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(225 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(270 90 86)" />
+                <ellipse cx="90" cy="46" rx="19" ry="40" transform="rotate(315 90 86)" />
+              </g>
+              <circle class="flower-center" cx="90" cy="86" r="20" />
+              <circle class="flower-center-dot" cx="90" cy="86" r="8" />
+            </g>
+          </svg>
+          <span class="firefly firefly--one"></span>
+          <span class="firefly firefly--two"></span>
+          <span class="firefly firefly--three"></span>
+        </div>
+
+        <div class="love-note" aria-live="polite">
+          <span class="note-mark" aria-hidden="true">“</span>
+          <p id="love-note">
+            Semoga malam ini kamu tidur dengan mood yang baik. Kalau hari ini
+            terasa panjang dan berat, ingat ya kalau kamu selalu punya tempat paling hangat di
+            hati acuu.
+          </p>
+          <span class="note-heart" aria-hidden="true">♥</span>
+        </div>
+        <button class="another-note" id="another-note" type="button">
+          <span aria-hidden="true">✧</span> ada satu lagi buat kamu
+        </button>
+        <p class="music-feedback" id="music-feedback" aria-live="polite"></p>
+      </div>
+      <p class="garden-footer">dibuat dengan sayang, khusus untuk my bebehhh <span>♥</span></p>
+    </main>
+  </body>
+</html>
